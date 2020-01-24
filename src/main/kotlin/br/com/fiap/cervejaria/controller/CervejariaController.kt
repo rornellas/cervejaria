@@ -10,6 +10,7 @@ import org.springframework.web.server.ResponseStatusException
 import java.math.BigDecimal
 import java.time.ZonedDateTime
 import java.util.*
+import javax.validation.Valid
 import kotlin.streams.toList
 
 @RestController
@@ -49,7 +50,7 @@ class CervejariaController {
 
     @GetMapping
     fun listarCervejas(@RequestParam(name = "tipo", required = false) tipo: String?): List<CervejaDTO>? {
-        return cervejaDTOList.stream().filter { it.tipo.equals(tipo) }?.toList()
+        return cervejaDTOList.stream().filter { it.tipo.equals(tipo?.toUpperCase()) }?.toList()
     }
 
     @GetMapping("/{id}")
@@ -58,7 +59,8 @@ class CervejariaController {
     }
 
     @PostMapping
-    fun criarCerveja(@RequestBody createCerveja: CreateCervejaDTO) : CervejaDTO {
+    @ResponseStatus(HttpStatus.CREATED)
+    fun criarCerveja(@Valid @RequestBody createCerveja: CreateCervejaDTO) : CervejaDTO {
         val criado = CervejaDTO(createCerveja, Integer(cervejaDTOList.size + 1))
         cervejaDTOList.add(criado)
         return criado

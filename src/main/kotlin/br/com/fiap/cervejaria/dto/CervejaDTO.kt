@@ -2,6 +2,7 @@ package br.com.fiap.cervejaria.dto
 
 import java.math.BigDecimal
 import java.time.ZonedDateTime
+import javax.validation.constraints.Min
 
 data class CervejaDTO(
         var id: Integer,
