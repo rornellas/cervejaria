@@ -8,8 +8,8 @@ class CervejaControllerUnitTest {
 
     @Test
     fun getAllTest() {
-        val listarCervejas = CervejariaController().listarCervejas("weiss")
-        Assertions.assertEquals(listarCervejas?.size, 1)
+        val listarCervejas = CervejariaController().listarCervejas(null)
+        Assertions.assertEquals(listarCervejas?.size, 3)
     }
 
 }

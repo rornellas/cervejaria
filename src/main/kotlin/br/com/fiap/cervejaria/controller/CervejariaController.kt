@@ -50,7 +50,7 @@ class CervejariaController {
 
     @GetMapping
     fun listarCervejas(@RequestParam(name = "tipo", required = false) tipo: String?): List<CervejaDTO>? {
-        return cervejaDTOList.stream().filter { it.tipo.equals(tipo?.toUpperCase()) }?.toList()
+        return cervejaDTOList.stream().filter { it.tipo.equals(tipo) || tipo == null }?.toList()
     }
 
     @GetMapping("/{id}")
