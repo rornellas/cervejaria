@@ -48,7 +48,7 @@ class CervejariaController {
     }
 
     @GetMapping
-    fun listarCervejas(@RequestParam(name = "tipo", required = true) tipo: TipoEnum): List<CervejaDTO>? {
+    fun listarCervejas(@RequestParam(name = "tipo", required = false) tipo: String?): List<CervejaDTO>? {
         return cervejaDTOList.stream().filter { it.tipo.equals(tipo) }?.toList()
     }
 
@@ -84,5 +84,14 @@ class CervejariaController {
         obj.preco = precoCervejaDTO.preco
 
         return obj
+    }
+
+    @DeleteMapping("/{id}")
+    fun deletar(@PathVariable("id") id: Integer): CervejaDTO {
+        val findById = findById(id)
+
+        cervejaDTOList.remove(findById)
+
+        return findById;
     }
 }
