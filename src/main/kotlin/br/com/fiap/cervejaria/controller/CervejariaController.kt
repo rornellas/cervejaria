@@ -32,7 +32,7 @@ class CervejariaController(val service: CervejaService) {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    fun criarCerveja(@Valid @RequestBody createCerveja: CreateCervejaDTO) : CervejaDTO {
+    fun criarCerveja(@Valid @RequestBody createCerveja: CervejaDTO) : CervejaDTO {
         return this.service.create(createCerveja)
     }
 

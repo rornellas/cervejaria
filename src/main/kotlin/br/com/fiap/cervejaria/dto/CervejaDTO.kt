@@ -3,7 +3,8 @@ package br.com.fiap.cervejaria.dto
 import br.com.fiap.cervejaria.entity.Cerveja
 import java.math.BigDecimal
 import java.time.ZonedDateTime
-import javax.validation.constraints.Min
+import java.time.ZoneOffset
+
 
 data class CervejaDTO(
         var id: Int?,
@@ -11,7 +12,8 @@ data class CervejaDTO(
         var teorAlcoolico: Double?,
         var tipo: TipoEnum?,
         var preco: BigDecimal?,
-        var dataLancamento: ZonedDateTime?
+        var dataCriacao: ZonedDateTime?,
+        var dataModificacao: ZonedDateTime?
 ) {
     constructor(
             cervejaDTO: CreateCervejaDTO,
@@ -22,7 +24,8 @@ data class CervejaDTO(
             teorAlcoolico = cervejaDTO.teorAlcoolico,
             tipo = cervejaDTO.tipo,
             preco = cervejaDTO.preco,
-            dataLancamento = cervejaDTO.dataLancamento
+            dataCriacao = convertToZonedDateTime(cervejaDTO.dataCriacao),
+            dataModificacao = convertToZonedDateTime(cervejaDTO.dataModificacao)
     )
 
     constructor(it: Cerveja) : this(
@@ -31,6 +34,15 @@ data class CervejaDTO(
             teorAlcoolico = it.teorAlcoolico,
             tipo = it.tipo,
             preco = it.preco,
-            dataLancamento = it.dataLancamento
+            dataCriacao = it.dataCriacao,
+            dataModificacao = it.dataModificacao
     )
+
+
+}
+private fun convertToZonedDateTime(dataModificacao: ZonedDateTime?): ZonedDateTime? {
+    if (dataModificacao != null) {
+        return ZonedDateTime.ofInstant(dataModificacao!!.toInstant(), ZoneOffset.systemDefault())
+    }
+    return null
 }

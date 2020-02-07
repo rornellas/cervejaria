@@ -6,8 +6,16 @@ spring:
   jackson:
     serialization:
       indent_output: true
-
   datasource:
-    url: jdbc:h2:~/fiapcervejaria;DB_CLOSE_ON_EXIT=false
+    url: jdbc:h2:C:\Users\logonrmlodal\Desktop\fiapcervejaria;DB_CLOSE_ON_EXIT=true
     username: fiap
     password: password
+  jpa:
+      hibernate:
+        ddl-auto: validate
+      show-sql: true
+  security:
+    user:
+      name: admin
+      password: fiap
+      roles: ADMIN

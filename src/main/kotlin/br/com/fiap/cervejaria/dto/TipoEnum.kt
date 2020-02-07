@@ -1,7 +1,5 @@
 package br.com.fiap.cervejaria.dto
 
 enum class TipoEnum {
-    IPA,WEISS,PILSEN,ALE,STOUT,
-
-    LAGGER
+    IPA,WEISS,PILSEN,ALE,STOUT,LAGGER
 }

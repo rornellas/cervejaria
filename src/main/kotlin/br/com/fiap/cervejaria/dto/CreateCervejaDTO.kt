@@ -9,5 +9,9 @@ data class CreateCervejaDTO(
     @Min(5)var teorAlcoolico: Double,
     var tipo: TipoEnum,
     var preco: BigDecimal,
-    var dataLancamento: ZonedDateTime
-)
+    var precoVenda: BigDecimal,
+    var dataModificacao: ZonedDateTime?,
+    val dataCriacao: ZonedDateTime?
+) {
+
+}
