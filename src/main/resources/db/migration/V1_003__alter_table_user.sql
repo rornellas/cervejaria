@@ -1,0 +1,1 @@
+alter table TB_USUARIO alter column password varchar(60) NOT NULL;

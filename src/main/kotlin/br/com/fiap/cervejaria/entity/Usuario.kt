@@ -13,17 +13,17 @@ import javax.persistence.*
 data class Usuario(
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        var id: Integer?,
+        var id: Integer? = null,
         @Column
-        var username: String?,
+        var username: String? = null,
         @Column
-        var password: String?,
+        var password: String? = null,
         @Column
         @CreatedDate
-        var dataCriacao: Date?,
+        var dataCriacao: Date? = null,
         @Column
         @LastModifiedDate
-        var dataModificacao: Date?
+        var dataModificacao: Date? = null
 ) {
         constructor(createUser: CreateUserDTO) : this(
                 id = null,

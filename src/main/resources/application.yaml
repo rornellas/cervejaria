@@ -7,7 +7,7 @@ spring:
     serialization:
       indent_output: true
   datasource:
-    url: jdbc:h2:C:\Users\logonrmlodal\Desktop\fiapcervejaria;DB_CLOSE_ON_EXIT=true
+    url: jdbc:h2:C:\Users\logonrmlocal\Desktop\fiapcervejaria;DB_CLOSE_ON_EXIT=true
     username: fiap
     password: password
   jpa:
@@ -19,3 +19,7 @@ spring:
       name: admin
       password: fiap
       roles: ADMIN
+
+jwt:
+  secret: F14ps3cr3t
+  expiration: 1

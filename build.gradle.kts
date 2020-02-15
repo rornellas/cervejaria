@@ -38,6 +38,10 @@ dependencies {
 
 	implementation("org.flywaydb:flyway-maven-plugin:4.0.3")
 
+	implementation("io.jsonwebtoken:jjwt:0.9.1")
+
+	implementation("io.reactivex.rxjava2:rxjava:2.2.5")
+
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	testImplementation("org.springframework.boot:spring-boot-starter-test") {
 		exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
